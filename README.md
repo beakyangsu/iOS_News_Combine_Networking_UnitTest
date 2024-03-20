@@ -13,7 +13,11 @@ reference : https://www.youtube.com/watch?v=M2psX-JwHdE&t=527s
 
 # What is My Role 
 + ViewModel과 data Model, View로 구성된 MVVM계층 구조를 설계하고 구현
-+ 화면을 구성하는 UI Componets를 만들고 이를 조합하는 방식으로 View 구현. SwiftUI가 View구현을 효율적으로 만들어주는 가장 큰 이유이기도 합니다. Speed-up이 가능해집니다.
++ <ins>Combine<\ins>을 이용해 Network코드를 구현하고, Generic type으로 리팩토링
++ <ins>NSCache<\ins>를 이용해 download한 image를 저장하고, 한번 download된 image를 재 download하지않도록 성능 개선
++ Custom Error 타입을 정의하고 이를 이용해 Error Handling을 구현. Networking에 error가 있을 경우 fetch retry를 하거나 error View를 화면에 보여주는 등의 적절한 대응 코드를 추가
++ UnitTest를 활용해 구현된 Combine Network의 success case와 fail case, Error Handling이 문제 없이 구현되었는지 확인
++ <ins>UnitTest시나 UI구현시 불필요한 API호출을 최소화 하기위해 dummy data와 error를 return하는 MockUpService 구현<\ins>
 
 
 # What I learn? 

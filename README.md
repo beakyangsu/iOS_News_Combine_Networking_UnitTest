@@ -15,7 +15,7 @@ reference : https://www.youtube.com/watch?v=M2psX-JwHdE&t=527s
 + ViewModel과 data Model, View로 구성된 MVVM계층 구조를 설계하고 구현
 + <ins>Combine을 이용해 Network코드를 구현하고, 코드를 재사용할 수 있도록 Generic type으로 리팩토링</ins>
 
-"""
+```
 protocol NewsService {
     //변화하는값을 발신해주는 퍼블리셔, 변화를 트래킹해야하는 값
     func request<T: Decodable>(from endpoint: NewsAPI, valueType: T.Type) -> AnyPublisher<T, APIError>
@@ -47,7 +47,9 @@ struct NewsServiceImpl: NewsService {
             .eraseToAnyPublisher() // AnyPublisher로 한번더 랩핑
     }
 }
-"""
+
+```
+
 + <ins>NSCache</ins>를 이용해 download한 image를 저장하고, 한번 download된 image를 재 download하지않도록 성능 개선
 + Custom Error 타입을 정의하고 이를 이용해 Error Handling을 구현. Networking에 error가 있을 경우 fetch retry를 하거나 error View를 화면에 보여주는 등의 적절한 대응 코드를 추가
 + UnitTest를 활용해 구현된 Combine Network의 success case와 fail case, Error Handling이 문제 없이 구현되었는지 확인

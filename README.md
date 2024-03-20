@@ -2,7 +2,7 @@ reference : https://www.youtube.com/watch?v=M2psX-JwHdE&t=527s
 
 # News App, Networking with Combine, Error Handling, UnitTest
 
-<img width="40%" src="https://github.com/beakyangsu/iOS_News_Combine_Networking_UnitTest/assets/12162598/fa8dffae-1b3c-48b5-927e-63edf08440fb
+<img width=40% src="https://github.com/beakyangsu/iOS_News_Combine_Networking_UnitTest/assets/12162598/fa8dffae-1b3c-48b5-927e-63edf08440fb
 ">
 <img width="240" alt="error" src="https://github.com/beakyangsu/iOS_News_Combine_Networking_UnitTest/assets/12162598/f6dfcaf0-0b7a-47ec-af28-c3bc4b488728">
 

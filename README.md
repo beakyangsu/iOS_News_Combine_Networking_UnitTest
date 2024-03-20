@@ -14,13 +14,13 @@ reference : https://www.youtube.com/watch?v=M2psX-JwHdE&t=527s
 # What is My Role 
 + ViewModel과 data Model, View로 구성된 MVVM계층 구조를 설계하고 구현
 + <ins>Combine을 이용해 Network코드를 구현하고, 코드를 재사용할 수 있도록 Generic type으로 리팩토링</ins>
+
 """
 protocol NewsService {
     //변화하는값을 발신해주는 퍼블리셔, 변화를 트래킹해야하는 값
     func request<T: Decodable>(from endpoint: NewsAPI, valueType: T.Type) -> AnyPublisher<T, APIError>
+
 }
-
-
 struct NewsServiceImpl: NewsService {
     func request<T: Decodable>(from endpoint: NewsAPI, valueType: T.Type) -> AnyPublisher<T, APIError> {
         return URLSession
@@ -33,21 +33,14 @@ struct NewsServiceImpl: NewsService {
                 guard let response = response as? HTTPURLResponse else {
                     return Fail(error: APIError.unknown).eraseToAnyPublisher()
                 }
-
                 if(200...299).contains(response.statusCode) {
-                    //성공
-
-                    //json에 string 타입 date 값을  .iso8601 포맷의 Date으로 바꾸기 위한 디코더
                     let jsonDecoder = JSONDecoder()
                     jsonDecoder.dateDecodingStrategy = .iso8601
-             
-                    //article을 발행
                     return Just(data)
                         .decode(type: T.self, decoder: jsonDecoder)
                         .mapError {_ in APIError.decodingError } // decodingError 일경우 APIError.decodingError을 다운스트림
                         .eraseToAnyPublisher()
                 } else {
-                    //fail
                     return Fail(error: APIError.errorCode(response.statusCode)).eraseToAnyPublisher()
                 }
             }

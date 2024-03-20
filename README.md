@@ -70,7 +70,7 @@ struct NewsServiceImpl: NewsService {
 
 + ### Error Handling
   + Networking에서 또 중요한 부분은 Error Handling이라고 생각합니다.
-  +<ins> Networking은 많은 에러케이스가 존재하기때문에 이를 적절히 처리</ins>하지않으면 사용자에게 불편한 경험을 제공할 수 있기 때문입니다.
+  + <ins> Networking은 많은 에러케이스가 존재하기때문에 이를 적절히 처리</ins>하지않으면 사용자에게 불편한 경험을 제공할 수 있기 때문입니다.
   + Error별로 적절히 구분하기 위해 Custom Error를 정의하였습니다.
 
 + ### UnitTest

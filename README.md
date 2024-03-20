@@ -8,7 +8,7 @@
 
 
 # Skills
-<img alt="Static Badge" src="https://img.shields.io/badge/SwiftUI-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/Swift-green"> <img alt="Static Badge" src="https://img.shields.io/badge/MVVM-red"> <img alt="Static Badge" src="https://img.shields.io/badge/@EnvironmentObject-yellow"> <img alt="Static Badge" src="https://img.shields.io/badge/Combine-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/networking-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/Error_Handling-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/UnitTest-blue">
+<img alt="Static Badge" src="https://img.shields.io/badge/SwiftUI-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/Swift-green"> <img alt="Static Badge" src="https://img.shields.io/badge/MVVM-red"> <img alt="Static Badge" src="https://img.shields.io/badge/@EnvironmentObject-yellow"> <img alt="Static Badge" src="https://img.shields.io/badge/Combine-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/networking-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/Error_Handling-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/UnitTest-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/NSCache-green">
 
 # What is My Role 
 + ViewModel과 data Model, View로 구성된 MVVM계층 구조를 설계하고 구현

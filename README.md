@@ -65,7 +65,7 @@ struct NewsServiceImpl: NewsService {
   + 사실 aync/await과 Combine방식 complition handler방식을 모두 써봤는데 가장 코드가 간결하고, 구현이 쉬웠던것은 aync/await이었습니다.
   + <ins>aync/await과 달리 Combine방식과 complition handler방식에선 항상 메모리 릭을 발생시킬 수 있는 retain cycle을 조심해야 합니다.</ins>
   + Combine방식과 complition handler방식 중에선 Combine이 편했습니다.
-  + complition handler방식에선 data전달을 위해선 <ins>또다른 handler를 사용하는등 handler를 중첩</ins>이 발생할 수 있고, 이는 곧 <ins>가독성을 저하</ins>시키는데 <ins>Combine의 경우 성공, 실패 케이스에 따라 Publisher에 결과를 담아서 return처리하면 되기 때문에 비교적 가독성이좋고, 코드가 간결합니다.</ins>
+  + complition handler방식에선 data전달을 위해선 <ins>또 다른 handler를 사용하는 등 handler 중첩</ins>이 발생할 수 있고, 이는 곧 <ins>가독성을 저하</ins>시키는데 <ins>Combine의 경우 성공, 실패 케이스에 따라 Publisher에 결과를 담아서 return처리하면 되기 때문에 비교적 가독성이좋고, 코드가 간결합니다.</ins>
 
 + ### Error Handling
   + Networking에서 또 중요한 부분은 Error Handling이라고 생각합니다.

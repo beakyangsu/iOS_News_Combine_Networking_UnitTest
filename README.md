@@ -81,5 +81,7 @@ struct NewsServiceImpl: NewsService {
  
 + ### MockUpService
   + Networking이 포함된 앱을 구현할때 중요한 점은 <ins>불필요한 API 호출을 최소화 </ins>하는것입니다.
-  + UnitTest를 하거나 UI를 구현하는데 실제 API호출이 이뤄질 필요는 없기때문에 별도의 MockUpService와 Dummy Data를 활용해 구현하는 것이 중요합니다. 
+  + UnitTest를 하거나 UI를 구현하는데 실제 API호출이 이뤄질 필요는 없기때문에 별도의 MockUpService와 Dummy Data를 활용해 구현하는 것이 중요합니다.
+  + <img width="569" alt="test" src="https://github.com/beakyangsu/iOS_News_Combine_Networking_UnitTest/assets/12162598/17b98e29-07a1-4cb4-a8ce-10e41836c0ab">
+
     

@@ -1,4 +1,3 @@
-reference : https://www.youtube.com/watch?v=M2psX-JwHdE&t=527s
 
 # News App, Networking with Combine, Error Handling, UnitTest
 
@@ -85,4 +84,5 @@ struct NewsServiceImpl: NewsService {
   + UnitTest를 하거나 UI를 구현하는데 실제 API호출이 이뤄질 필요는 없기때문에 별도의 MockUpService와 Dummy Data를 활용해 구현하는 것이 중요합니다.
 
 
-    
+
+reference : https://www.youtube.com/watch?v=M2psX-JwHdE&t=527s

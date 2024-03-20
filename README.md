@@ -62,7 +62,7 @@ struct NewsServiceImpl: NewsService {
   + 사실 Networking에 있어서 중요한점은 비동기(aync)로 동작해야한다는 점인데 사실 Combine은 비동기 프로그래밍이 아닌 State변화를 관찰 및 Update하기 위한 Framework지만 아이러니하게 변화가있을시 Update라는 특징이 비동기프로그래밍과도 비슷한 부분이 있어 Combine을 사용하는 경우도 많다고 하여 사용해봤습니다.
   + 현재는 aync/await이 사실 Networking에 있어 가장 효율적인 방식으로 평가받고있지만 <ins>aync/await은 iOS 15.0부터 등장했기때문에 15.0 이하 Target App 개발을 위해 complition handler나 Combine같은 반응형 프로그래밍 방식을이용한 Networking구현 방법을 숙지</ins>하는것도 중요하다고 생각합니다.
 
-+ ### aync/await vs Complition handler vs Combine
++ ### Aync/Await vs Complition handler vs Combine
   + 사실 aync/await과 Combine방식 complition handler방식을 모두 써봤는데 가장 코드가 간결하고, 구현이 쉬웠던것은 aync/await이었습니다.
   + <ins>aync/await과 달리 Combine방식과 complition handler방식에선 항상 메모리 릭을 발생시킬 수 있는 retain cycle을 조심해야 합니다.</ins>
   + Combine방식과 complition handler방식 중에선 Combine이 편했습니다.
@@ -78,10 +78,11 @@ struct NewsServiceImpl: NewsService {
   + UnitTest가 빛을 발하는 상황은 <ins>리팩토링이나 이후 비지니스 로직이 새로 추가</ins>되어 코드 수정이 발생하는경우입니다.
   + 이럴경우 코드를 수정한뒤 UnitTest 실행을 통해 <ins>기존에 정상동작이던 기능들이 문제없이 동작하는지 빠르게 확인</ins>할 수 있습니다.
   + **안정적이고, 유지보수**하기 쉽게 만들어줍니다.
+  + <img width="569" alt="test" src="https://github.com/beakyangsu/iOS_News_Combine_Networking_UnitTest/assets/12162598/17b98e29-07a1-4cb4-a8ce-10e41836c0ab">
  
 + ### MockUpService
   + Networking이 포함된 앱을 구현할때 중요한 점은 <ins>불필요한 API 호출을 최소화 </ins>하는것입니다.
   + UnitTest를 하거나 UI를 구현하는데 실제 API호출이 이뤄질 필요는 없기때문에 별도의 MockUpService와 Dummy Data를 활용해 구현하는 것이 중요합니다.
-  + <img width="569" alt="test" src="https://github.com/beakyangsu/iOS_News_Combine_Networking_UnitTest/assets/12162598/17b98e29-07a1-4cb4-a8ce-10e41836c0ab">
+
 
     

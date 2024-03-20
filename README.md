@@ -3,7 +3,7 @@ reference : https://www.youtube.com/watch?v=M2psX-JwHdE&t=527s
 # News App, Networking with Combine, Error Handling, UnitTest
 
 <img width="40%" src="https://github.com/beakyangsu/iOS_News_Combine_Networking_UnitTest/assets/12162598/fa8dffae-1b3c-48b5-927e-63edf08440fb">
-<img width="240" alt="error" src="https://github.com/beakyangsu/iOS_News_Combine_Networking_UnitTest/assets/12162598/f6dfcaf0-0b7a-47ec-af28-c3bc4b488728">
+<img width="40%" alt="error" src="https://github.com/beakyangsu/iOS_News_Combine_Networking_UnitTest/assets/12162598/f6dfcaf0-0b7a-47ec-af28-c3bc4b488728">
 
 ❗**Combine, Error Handling, UnitTest**❗를 활용하여 News를 보여주는 프로젝트입니다. Combine을 이용해 Network코드를 구현하고, Generic type으로 리팩토링하여 코드 확장성을 키웠습니다. Error Handling을 통해 Networking에 error가 있을 경우 fetch retry를 하거나 error View를 화면에 보여주는 등의 적절한 대응 코드를 추가했습니다. UnitTest를 활용해 구현된 Combine Network의 success case와 fail case, Error Handling이 문제 없이 구현되었는지 확인했습니다. 
 

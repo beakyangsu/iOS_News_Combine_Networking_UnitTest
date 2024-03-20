@@ -1,15 +1,16 @@
 reference : https://www.youtube.com/watch?v=M2psX-JwHdE&t=527s
 
-# Shopping App Style UI Making Project with SwitfUI and MVVM 
+# News App, Networking with Combine, Error Handling, UnitTest
 
 
-<img width="40%" src="https://github.com/beakyangsu/iOS_ShoppingApp_SwiftUI_MVVM/assets/12162598/d7c652a5-82eb-4a31-9a4b-07df99e7dc10">
 
-❗**SwiftUI와 MVVM패턴**❗을 활용하여 Shopping App Style 앱 디자인을 직접 만들어보는 프로젝트입니다. 현업에선 최소 iOS target이 14.0인 앱을 서비스하고있어 Storyboard로만 프로젝트를 진행했었기 때문에 iOS 15.0 부터 사용할 수 있는 SwiftUI Skill을 쌓기 위해 시작한 프로젝트 입니다. 이를 통해 ✅**SwiftUI와 Storyboard를 비교**✅  해보고 어떤 Framework가 현업에 더 유리할지 분석해봤습니다. 
+<img width="240" alt="error" src="https://github.com/beakyangsu/iOS_News_Combine_Networking_UnitTest/assets/12162598/f6dfcaf0-0b7a-47ec-af28-c3bc4b488728">
+
+❗**Combine, Error Handling, UnitTest**❗를 활용하여 News를 보여주는 프로젝트입니다. Combine을 이용해 Network코드를 구현하고, Generic type으로 리팩토링하여 코드 확장성을 키웠습니다. Error Handling을 통해 Networking에 error가 있을 경우 fetch retry를 하거나 error View를 화면에 보여주는 등 적절한 대응 코드를 추가했습니다. UnitTest를 활용해 구현된 Combine Network의 success case와 fail case, Error Handling이 문제없이 구현되었는지 확인했습니다. 
 
 
 # Skills
-<img alt="Static Badge" src="https://img.shields.io/badge/SwiftUI-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/Swift-green"> <img alt="Static Badge" src="https://img.shields.io/badge/MVVM-red"> <img alt="Static Badge" src="https://img.shields.io/badge/@EnvironmentObject-yellow">
+<img alt="Static Badge" src="https://img.shields.io/badge/SwiftUI-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/Swift-green"> <img alt="Static Badge" src="https://img.shields.io/badge/MVVM-red"> <img alt="Static Badge" src="https://img.shields.io/badge/@EnvironmentObject-yellow"> <img alt="Static Badge" src="https://img.shields.io/badge/Combine-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/networking-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/Error_Handling-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/UnitTest-blue">
 
 # What is My Role 
 + ViewModel과 data Model, View로 구성된 MVVM계층 구조를 설계하고 구현

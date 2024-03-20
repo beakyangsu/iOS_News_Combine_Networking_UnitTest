@@ -14,6 +14,47 @@ reference : https://www.youtube.com/watch?v=M2psX-JwHdE&t=527s
 # What is My Role 
 + ViewModel과 data Model, View로 구성된 MVVM계층 구조를 설계하고 구현
 + <ins>Combine을 이용해 Network코드를 구현하고, 코드를 재사용할 수 있도록 Generic type으로 리팩토링</ins>
+"""
+protocol NewsService {
+    //변화하는값을 발신해주는 퍼블리셔, 변화를 트래킹해야하는 값
+    func request<T: Decodable>(from endpoint: NewsAPI, valueType: T.Type) -> AnyPublisher<T, APIError>
+}
+
+
+struct NewsServiceImpl: NewsService {
+    func request<T: Decodable>(from endpoint: NewsAPI, valueType: T.Type) -> AnyPublisher<T, APIError> {
+        return URLSession
+            .shared
+            .dataTaskPublisher(for: endpoint.urlRequest) // request에 대한 처리
+            .receive(on: DispatchQueue.main)
+            .mapError{ _ in APIError.unknown } // urlRequest error 일경우 APIError.unknown을 다운스트림
+            .flatMap{ data, response ->  AnyPublisher<T, APIError>  in
+                //response nil 처리, Fail퍼블리셔를 anypublisher로 랩핑해서 리턴
+                guard let response = response as? HTTPURLResponse else {
+                    return Fail(error: APIError.unknown).eraseToAnyPublisher()
+                }
+
+                if(200...299).contains(response.statusCode) {
+                    //성공
+
+                    //json에 string 타입 date 값을  .iso8601 포맷의 Date으로 바꾸기 위한 디코더
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.dateDecodingStrategy = .iso8601
+             
+                    //article을 발행
+                    return Just(data)
+                        .decode(type: T.self, decoder: jsonDecoder)
+                        .mapError {_ in APIError.decodingError } // decodingError 일경우 APIError.decodingError을 다운스트림
+                        .eraseToAnyPublisher()
+                } else {
+                    //fail
+                    return Fail(error: APIError.errorCode(response.statusCode)).eraseToAnyPublisher()
+                }
+            }
+            .eraseToAnyPublisher() // AnyPublisher로 한번더 랩핑
+    }
+}
+"""
 + <ins>NSCache</ins>를 이용해 download한 image를 저장하고, 한번 download된 image를 재 download하지않도록 성능 개선
 + Custom Error 타입을 정의하고 이를 이용해 Error Handling을 구현. Networking에 error가 있을 경우 fetch retry를 하거나 error View를 화면에 보여주는 등의 적절한 대응 코드를 추가
 + UnitTest를 활용해 구현된 Combine Network의 success case와 fail case, Error Handling이 문제 없이 구현되었는지 확인
@@ -26,7 +67,7 @@ reference : https://www.youtube.com/watch?v=M2psX-JwHdE&t=527s
   + 사실 Networking에 있어서 중요한점은 비동기(aync)로 동작해야한다는 점인데 사실 Combine은 비동기 프로그래밍이 아닌 State변화를 관찰 및 Update하기 위한 Framework지만 아이러니하게 변화가있을시 Update라는 특징이 비동기프로그래밍과도 비슷한 부분이 있어 Combine을 사용하는 경우도 많다고 하여 사용해봤습니다.
   + 현재는 aync/await이 사실 Networking에 있어 가장 효율적인 방식으로 평가받고있지만 <ins>aync/await은 iOS 15.0부터 등장했기때문에 15.0 이하 Target App 개발을 위해 complition handler나 Combine같은 반응형 프로그래밍 방식을이용한 Networking구현 방법을 숙지</ins>하는것도 중요하다고 생각합니다.
 
-+ ### aync/await vs complition handler vs Combine
++ ### aync/await vs Complition handler vs Combine
   + 사실 aync/await과 Combine방식 complition handler방식을 모두 써봤는데 가장 코드가 간결하고, 구현이 쉬웠던것은 aync/await이었습니다.
   + <ins>aync/await과 달리 Combine방식과 complition handler방식에선 항상 메모리 릭을 발생시킬 수 있는 retain cycle을 조심해야 합니다.<\ins>
   + Combine방식과 complition handler방식 중에선 Combine이 편했습니다.
